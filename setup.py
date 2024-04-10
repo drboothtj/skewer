@@ -15,6 +15,6 @@ setup(
     url="https://github.com/DrBoothTJ/skewer",
     license='GNU General Public License v3.0',
     python_requires='>=3.7',
-    install_requires=['plotly','Bio'],
+    install_requires=['Bio','matplotlib','plotly'],
     entry_points={'console_scripts': ["gcskewer=gcskewer.main:main"]}
 )
