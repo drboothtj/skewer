@@ -12,7 +12,7 @@ setup(
     description="A python for plotting GC-skew from DNA sequences.",
     long_description=description,
     long_description_content_type="text/markdown",
-    url="https://github.com/DrBoothTJ/skewer",
+    url="https://github.com/DrBoothTJ/gcskewer",
     license='GNU General Public License v3.0',
     python_requires='>=3.7',
     install_requires=['Bio','matplotlib','plotly'],
