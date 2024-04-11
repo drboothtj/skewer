@@ -17,11 +17,11 @@ You can also install `gcskewer` by cloning this repository.
 ### Input
 `gcskewer` can take DNA sequences in .fasta or .gbk format. You can specify with `-f`/`--fasta` or `-g`/`--gbk`. You can't do both at the same time - only define you sequence one! For example:
 
-`gcskewer -g example.gbk`
+`gcskewer -s -g example.gbk`
 
 **or**
 
-`gcskewer -f example.fasta`
+`gcskewer -s -f example.fasta`
 
 ### Output
 `gcskewer` has three output formats: .csv (a comma seperated table of the results), .svg (an editable vector format graph) and .html (an interactive graph of the results). You can specify which outputs you want with `-c`/`--csv`, `-s`/`--svg` and `-p`/`--plot` (for the .html). If you are unsure, you can just specify all three:
