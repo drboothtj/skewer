@@ -5,6 +5,7 @@ checks inputs for gcskewer
         InputError(GCSkewerError)
     functions:
         check_input(args)
+        check_output(args)
         get_window_size(sequences: List) -> int
         get_step_size(window_size: int) -> int
         check_window_and_step(window_size, step_size, sequences) -> (int, int)
@@ -34,7 +35,7 @@ def check_input(args):
 
     '''
     if args.genbank is None and args.fasta is None:
-        raise InputError('No input file!')
+        raise InputError('No input file! Please specify a genbank or fasta file.')
     if args.fasta and args.genbank:
         raise InputError('Both genbank and fasta input provided - pick one!')
     if args.genbank is None:
@@ -43,6 +44,19 @@ def check_input(args):
         return args.genbank, 'genbank'
     raise InputError(
         'Something unexpected happened when processing the input. Please contact directly for help!'
+        )
+
+def check_output(args):
+    '''
+        checks if any output is asked for
+        arguments:
+            args: args from argsparse
+        returns:
+            None
+    '''
+    if (args.csv or args.svg or args.plot) is False:
+        raise InputError(
+        'No output specified. Please specify at least one output format.'
         )
 
 def get_window_size(sequences: List) -> int:
@@ -54,7 +68,7 @@ def get_window_size(sequences: List) -> int:
             window_size: 1% of the smallest sequence
     '''
     sequence_lengths = [len(seq) for seq in sequences]
-    window_size = min(sequence_lengths)//100
+    window_size = min(sequence_lengths) // 100
     return window_size
 
 def get_step_size(window_size: int) -> int:

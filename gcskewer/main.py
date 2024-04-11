@@ -73,6 +73,7 @@ def main():
     io.print_to_system('Running gcskewer...')
     args = parser.get_args()
     filename, _format = checks.check_input(args)
+    checks.check_output(args)
     record_names, record_sequences = io.read_file(filename, _format)
     assert record_sequences, (
         'No input sequences!'
